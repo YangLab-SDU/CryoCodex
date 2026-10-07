@@ -10,9 +10,45 @@
 
 <br>
 
-<img src="cryocodex_fig1.png" alt="CryoCodex workflow and model architecture" width="94%">
+<img src="assets/cryocodex_fig1.png" alt="CryoCodex workflow and model architecture" width="94%">
 
 </div>
+
+---
+
+## Example results
+
+The example below shows the original input density map and the four outputs produced by CryoCodex.
+
+### Map enhancement
+
+<table>
+<tr><th width="50%">Input · Original density map</th><th width="50%">Output · Enhanced map</th></tr>
+<tr>
+<td align="center"><img src="assets/7zki_1.png" alt="Original input cryo-EM density map" width="500"></td>
+<td align="center"><img src="assets/7zki_2.png" alt="CryoCodex enhanced map" width="500"></td>
+</tr>
+</table>
+
+### Local quality estimation
+
+Both local quality maps below are predicted outputs of CryoCodex.
+
+<table>
+<tr><th width="50%">Output · Input map local quality</th><th width="50%">Output · Enhanced map local quality</th></tr>
+<tr>
+<td align="center"><img src="assets/7zki_3.png" alt="Predicted local quality scores of the original map" width="500"></td>
+<td align="center"><img src="assets/7zki_4.png" alt="Predicted local quality scores of the enhanced map" width="500"></td>
+</tr>
+</table>
+
+<sub>Blue indicates lower predicted local quality and red indicates higher predicted local quality. The two panels use different color-scale ranges; refer to the numerical color bars when comparing scores.</sub>
+
+### Molecular mask prediction
+
+<p align="center"><b>Output · Predicted molecular mask</b></p>
+<p align="center"><img src="assets/7zki_5.png" alt="Predicted molecular mask shown with a ribbon model for reference" width="500"></p>
+<p align="center"><sub>The ribbon model is shown for reference and is not a CryoCodex output.</sub></p>
 
 ---
 
@@ -261,7 +297,7 @@ color sample #1 map #2 palette "#1B3A5F:#245A8D:#2F80C0:#6BAED6:#BFD9EA:#7F7F7F:
 
 The palette spans the score range used for the surface coloring, from **lower local quality** to **higher local quality**.
 
-![Local quality color scale from low (blue) to high (dark red)](./local-quality-colorbar.png)
+![Local quality color scale from low (blue) to high (dark red)](.assets/local-quality-colorbar.png)
 
 For the enhanced map, use `cryocodex_out_score.mrc` in the same way:
 
