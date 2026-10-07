@@ -23,12 +23,6 @@ The example below shows the original input density map and the four outputs prod
 ### Map enhancement
 
 <p align="center">
-  <b>Input · Original density map</b>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Output · Enhanced map</b>
-</p>
-
-<p align="center">
   <img src="assets/7zki_1.png" alt="Original input density map" width="300">
   &nbsp;&nbsp;&nbsp;&nbsp;
   <img src="assets/7zki_2.png" alt="Enhanced density map" width="300">
@@ -36,12 +30,6 @@ The example below shows the original input density map and the four outputs prod
 
 
 ### Local quality estimation
-
-<p align="center">
-  <b>Output · Input map local quality</b>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Output · Enhanced map local quality</b>
-</p>
 
 <p align="center">
   <img src="assets/7zki_3.png" alt="Input map local quality" width="300">
@@ -60,10 +48,6 @@ The example below shows the original input density map and the four outputs prod
 ### Molecular mask prediction
 
 <p align="center">
-  <b>Output · Predicted molecular mask</b>
-</p>
-
-<p align="center">
   <img src="assets/7zki_5.png" alt="Predicted molecular mask" width="300">
 </p>
 
@@ -72,7 +56,6 @@ The example below shows the original input density map and the four outputs prod
     The ribbon model is shown for reference and is not a CryoCodex output.
   </sub>
 </p>
-
 ---
 
 ## Requirements
