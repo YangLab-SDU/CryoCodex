@@ -28,8 +28,8 @@ The example below shows the original input density map and the four outputs prod
     <th width="50%" align="center">Output · Enhanced map</th>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="assets/7zki_1.png" alt="Original input density map" width="500"></td>
-    <td align="center" valign="top"><img src="assets/7zki_2.png" alt="Enhanced density map" width="500"></td>
+    <td align="center" valign="top"><img src="assets/7zki_1.png" alt="Original input density map" width="300"></td>
+    <td align="center" valign="top"><img src="assets/7zki_2.png" alt="Enhanced density map" width="300"></td>
   </tr>
 </table>
 
@@ -43,8 +43,8 @@ Both local quality maps below are predicted outputs of CryoCodex.
     <th width="50%" align="center">Output · Enhanced map local quality</th>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="assets/7zki_3.png" alt="Input map local quality" width="500"></td>
-    <td align="center" valign="top"><img src="assets/7zki_4.png" alt="Enhanced map local quality" width="500"></td>
+    <td align="center" valign="top"><img src="assets/7zki_3.png" alt="Input map local quality" width="300"></td>
+    <td align="center" valign="top"><img src="assets/7zki_4.png" alt="Enhanced map local quality" width="300"></td>
   </tr>
 </table>
 
@@ -54,7 +54,7 @@ Both local quality maps below are predicted outputs of CryoCodex.
 
 <p align="center"><b>Output · Predicted molecular mask</b></p>
 <p align="center">
-  <img src="assets/7zki_5.png" alt="Predicted molecular mask" width="500">
+  <img src="assets/7zki_5.png" alt="Predicted molecular mask" width="300">
 </p>
 
 <p align="center"><sub>The ribbon model is shown for reference and is not a CryoCodex output.</sub></p>
