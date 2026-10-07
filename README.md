@@ -22,28 +22,37 @@ The example below shows the original input density map and the four outputs prod
 
 ### Map enhancement
 
+<p align="center"><b>Input · Original density map</b></p>
 <p align="center">
-  <img src="assets/7zki_1_titled.svg" alt="Input · Original density map" width="48%">
-  &nbsp;
-  <img src="assets/7zki_2_titled.svg" alt="Output · Enhanced map" width="48%">
+  <img src="assets/7zki_1.png" alt="Original input density map" width="500">
+</p>
+
+<p align="center"><b>Output · Enhanced map</b></p>
+<p align="center">
+  <img src="assets/7zki_2.png" alt="Enhanced density map" width="500">
 </p>
 
 ### Local quality estimation
 
 Both local quality maps below are predicted outputs of CryoCodex.
 
+<p align="center"><b>Output · Input map local quality</b></p>
 <p align="center">
-  <img src="assets/7zki_3_titled.svg" alt="Output · Input map local quality" width="48%">
-  &nbsp;
-  <img src="assets/7zki_4_titled.svg" alt="Output · Enhanced map local quality" width="48%">
+  <img src="assets/7zki_3_test_ss1.png" alt="Input map local quality" width="500">
+</p>
+
+<p align="center"><b>Output · Enhanced map local quality</b></p>
+<p align="center">
+  <img src="assets/7zki_4.png" alt="Enhanced map local quality" width="500">
 </p>
 
 <sub>Blue indicates lower predicted local quality and red indicates higher predicted local quality. The two panels use different color-scale ranges; refer to the numerical color bars when comparing scores.</sub>
 
 ### Molecular mask prediction
 
+<p align="center"><b>Output · Predicted molecular mask</b></p>
 <p align="center">
-  <img src="assets/7zki_5_titled.svg" alt="Output · Predicted molecular mask" width="500">
+  <img src="assets/7zki_5.png" alt="Predicted molecular mask" width="500">
 </p>
 
 <p align="center"><sub>The ribbon model is shown for reference and is not a CryoCodex output.</sub></p>
