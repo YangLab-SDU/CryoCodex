@@ -22,20 +22,46 @@ The example below shows the original input density map and the four outputs prod
 
 ### Map enhancement
 
-<p align="center">
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="320" style="border: none;">
+  <b>Input · Original density map</b>
+  <br><br>
   <img src="assets/7zki_1.png" alt="Original input density map" width="300">
-  &nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+<td align="center" width="320" style="border: none;">
+  <b>Output · Enhanced map</b>
+  <br><br>
   <img src="assets/7zki_2.png" alt="Enhanced density map" width="300">
-</p>
+</td>
+</tr>
+</table>
+
+</div>
 
 
 ### Local quality estimation
 
-<p align="center">
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="320" style="border: none;">
+  <b>Output · Input map local quality</b>
+  <br><br>
   <img src="assets/7zki_3.png" alt="Input map local quality" width="300">
-  &nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+
+<td align="center" width="320" style="border: none;">
+  <b>Output · Enhanced map local quality</b>
+  <br><br>
   <img src="assets/7zki_4.png" alt="Enhanced map local quality" width="300">
-</p>
+</td>
+</tr>
+</table>
 
 <p align="center">
   <sub>
@@ -44,18 +70,31 @@ The example below shows the original input density map and the four outputs prod
   </sub>
 </p>
 
+</div>
+
 
 ### Molecular mask prediction
 
-<p align="center">
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="320" style="border: none;">
+  <b>Output · Predicted molecular mask</b>
+  <br><br>
   <img src="assets/7zki_5.png" alt="Predicted molecular mask" width="300">
-</p>
+</td>
+</tr>
+</table>
 
 <p align="center">
   <sub>
     The ribbon model is shown for reference and is not a CryoCodex output.
   </sub>
 </p>
+
+</div>
+
 ---
 
 ## Requirements
@@ -126,7 +165,10 @@ Check the installation with:
 
 ## Usage
 
-### Basic command
+<details open>
+<summary><b>Basic command</b></summary>
+
+<br>
 
 ```bash
 ./predict.sh -i in_map.mrc -o out_dir [Options]
@@ -140,27 +182,44 @@ For a standard run:
 
 CryoCodex uses **Fast mode** by default.
 
-### Required arguments
+</details>
 
-| Argument | Description                       |
-| :------- | :-------------------------------- |
-| `-i MAP` | Input EM map (`.map` / `.mrc`)    |
+<details>
+<summary><b>Required arguments</b></summary>
+
+<br>
+
+| Argument | Description |
+| :------- | :---------- |
+| `-i MAP` | Input EM map (`.map` / `.mrc`) |
 | `-o DIR` | Directory to save the output maps |
 
-### Options
+</details>
 
-| Option                                | Description                                                                                                 |  Default  |
-| :------------------------------------ | :---------------------------------------------------------------------------------------------------------- | :-------: |
-| `-n OUT_NAME`                         | Base name of the output maps                                                                                | `cryocodex` |
-| `-g GPU_ID`                           | Which GPU to run on, e.g. `0`                                                                               |    `0`    |
-| `-b BATCH_SIZE`                       | Number of boxes processed in one batch                                                                      |    `9`    |
-| `-s STRIDE`                           | Stride of the sliding window that cuts the input map into overlapping boxes                                 |    `12`   |
-| `--normal True\|False`                | Infer on the whole map without cropping the background away                                                 |  `False`  |
-| `--reverse_interpolation True\|False` | Resample the saved maps back to the voxel size of the input map                                             |  `False`  |
-| `--crop_check True\|False`            | Fast mode only: review the cropped region before inference                                                  |  `False`  |
-| `--keep_size True\|False`             | Fast mode only: fill the cropped-away background back in with zeros so the outputs span the whole input map |  `False`  |
-| `--no_logo True\|False`               | Do not show the logo banner                                                                                 |  `False`  |
-| `--version`                           | Print the version of CryoCodex and exit                                                                   |     —     |
+<details>
+<summary><b>Options</b></summary>
+
+<br>
+
+| Option | Description | Default |
+| :----- | :---------- | :-----: |
+| `-n OUT_NAME` | Base name of the output maps | `cryocodex` |
+| `-g GPU_ID` | Which GPU to run on, e.g. `0` | `0` |
+| `-b BATCH_SIZE` | Number of boxes processed in one batch | `9` |
+| `-s STRIDE` | Stride of the sliding window that cuts the input map into overlapping boxes | `12` |
+| `--normal True\|False` | Infer on the whole map without cropping the background away | `False` |
+| `--reverse_interpolation True\|False` | Resample the saved maps back to the voxel size of the input map | `False` |
+| `--crop_check True\|False` | Fast mode only: review the cropped region before inference | `False` |
+| `--keep_size True\|False` | Fast mode only: fill the cropped-away background back in with zeros so the outputs span the whole input map | `False` |
+| `--no_logo True\|False` | Do not show the logo banner | `False` |
+| `--version` | Print the version of CryoCodex and exit | — |
+
+</details>
+
+<details>
+<summary><b>Command-line help</b></summary>
+
+<br>
 
 For command-line help:
 
@@ -169,11 +228,17 @@ For command-line help:
 ./predict.sh -h advanced   # Full option list
 ```
 
----
+</details>
 
+---
 ## Inference Modes
 
 CryoCodex provides two inference modes, selected with `--normal True|False`.
+
+<details>
+<summary><b>Inference mode details</b></summary>
+
+<br>
 
 <table>
 <tr>
@@ -194,13 +259,15 @@ Crops the background around the molecule away and performs inference only on the
 
 <b>Available options</b>
 
-<br><br>
+<p>
+<code>--crop_check True</code><br>
+<sub>Review the cropped region before inference.</sub>
+</p>
 
-<code>--crop_check True</code><br> <sub>Review the cropped region before inference.</sub>
-
-<br><br>
-
-<code>--keep_size True</code><br> <sub>Fill the cropped-away background back in with zeros.</sub>
+<p>
+<code>--keep_size True</code><br>
+<sub>Fill the cropped-away background back in with zeros.</sub>
+</p>
 
 </td>
 
@@ -221,22 +288,27 @@ Performs inference on the whole map without cropping anything away.
 
 <b>Characteristics</b>
 
-<br><br>
+<p>
+<code>Region</code><br>
+<sub>Whole input map</sub>
+</p>
 
-<code>Region</code><br> <sub>Whole input map</sub>
+<p>
+<code>Speed</code><br>
+<sub>Slower than Fast mode</sub>
+</p>
 
-<br><br>
-
-<code>Speed</code><br> <sub>Slower than Fast mode</sub>
-
-<br><br>
-
-<code>Crop options</code><br> <sub>Not applicable</sub>
+<p>
+<code>Crop options</code><br>
+<sub>Not applicable</sub>
+</p>
 
 </td>
 
 </tr>
 </table>
+
+</details>
 
 <details>
 <summary><b>Crop inspection</b> · <code>--crop_check True</code></summary>
@@ -303,7 +375,7 @@ color sample #1 map #2 palette "#1B3A5F:#245A8D:#2F80C0:#6BAED6:#BFD9EA:#7F7F7F:
 
 The palette spans the score range used for the surface coloring, from **lower local quality** to **higher local quality**.
 
-![Local quality color scale from low (blue) to high (dark red)](.assets/local-quality-colorbar.png)
+![Local quality color scale from low (blue) to high (dark red)](assets/local-quality-colorbar.png)
 
 For the enhanced map, use `cryocodex_out_score.mrc` in the same way:
 
