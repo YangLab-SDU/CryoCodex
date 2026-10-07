@@ -22,29 +22,31 @@ The example below shows the original input density map and the four outputs prod
 
 ### Map enhancement
 
-<p align="center"><b>Input · Original density map</b></p>
-<p align="center">
-  <img src="assets/7zki_1.png" alt="Original input density map" width="500">
-</p>
-
-<p align="center"><b>Output · Enhanced map</b></p>
-<p align="center">
-  <img src="assets/7zki_2.png" alt="Enhanced density map" width="500">
-</p>
+<table>
+  <tr>
+    <th width="50%" align="center">Input · Original density map</th>
+    <th width="50%" align="center">Output · Enhanced map</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="assets/7zki_1.png" alt="Original input density map" width="500"></td>
+    <td align="center" valign="top"><img src="assets/7zki_2.png" alt="Enhanced density map" width="500"></td>
+  </tr>
+</table>
 
 ### Local quality estimation
 
 Both local quality maps below are predicted outputs of CryoCodex.
 
-<p align="center"><b>Output · Input map local quality</b></p>
-<p align="center">
-  <img src="assets/7zki_3_test_ss1.png" alt="Input map local quality" width="500">
-</p>
-
-<p align="center"><b>Output · Enhanced map local quality</b></p>
-<p align="center">
-  <img src="assets/7zki_4.png" alt="Enhanced map local quality" width="500">
-</p>
+<table>
+  <tr>
+    <th width="50%" align="center">Output · Input map local quality</th>
+    <th width="50%" align="center">Output · Enhanced map local quality</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="assets/7zki_3_test_ss1.png" alt="Input map local quality" width="500"></td>
+    <td align="center" valign="top"><img src="assets/7zki_4.png" alt="Enhanced map local quality" width="500"></td>
+  </tr>
+</table>
 
 <sub>Blue indicates lower predicted local quality and red indicates higher predicted local quality. The two panels use different color-scale ranges; refer to the numerical color bars when comparing scores.</sub>
 
