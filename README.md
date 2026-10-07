@@ -43,7 +43,7 @@ Both local quality maps below are predicted outputs of CryoCodex.
     <th width="50%" align="center">Output · Enhanced map local quality</th>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="assets/7zki_3_test_ss1.png" alt="Input map local quality" width="500"></td>
+    <td align="center" valign="top"><img src="assets/7zki_3.png" alt="Input map local quality" width="500"></td>
     <td align="center" valign="top"><img src="assets/7zki_4.png" alt="Enhanced map local quality" width="500"></td>
   </tr>
 </table>
