@@ -2,7 +2,18 @@
 
 # CryoCodex
 
-<p>Version 1.0.0 · Python 3.11 · PyTorch 2.5.1 · CUDA 12.4</p>
+<p>
+  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version 1.0.0">
+  <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&amp;logoColor=white" alt="Python 3.11">
+  <img src="https://img.shields.io/badge/PyTorch-2.5.1-EE4C2C?logo=pytorch&amp;logoColor=white" alt="PyTorch 2.5.1">
+  <img src="https://img.shields.io/badge/CUDA-12.4-76B900?logo=nvidia&amp;logoColor=white" alt="CUDA 12.4">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green" alt="License: MIT"></a>
+</p>
+
+<p>
+  <a href="https://colab.research.google.com/github/YangLab-SDU/CryoCodex/blob/main/CryoCodex.ipynb"><img src="https://img.shields.io/badge/Colab-Open_Notebook-F9AB00?logo=googlecolab&amp;logoColor=F9AB00" alt="Open in Colab" align="absmiddle"></a>
+  &nbsp; &larr; <em>Online inference</em>
+</p>
 
 ### Cryo-EM map enhancement with local quality estimation and molecular mask prediction
 
