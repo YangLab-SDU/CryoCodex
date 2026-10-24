@@ -1,20 +1,12 @@
 #!/bin/bash
 # CryoCodex launcher
 
-# Users should properly set the following variables before running CryoCodex
-#######################################################################
-    CryoCodex_home=""
-    activate=""
-    CryoCodex_env=""
-    Model_URL="https://yanglab.qd.sdu.edu.cn/CryoCodex/CryoCodex.pth"
-#######################################################################
+set -e
 
-. "$activate" "$CryoCodex_env" 2>/dev/null
-
-if [ "$CONDA_DEFAULT_ENV" != "$CryoCodex_env" ]; then
-    echo "ERROR: Cannot activate the conda environment '$CryoCodex_env'"
-    exit 1
-fi
+# Resolve paths from this script, leaving relative input/output paths unchanged.
+CryoCodex_home="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+CryoCodex_env="${CRYOCODEX_ENV:-cryocodex_env}"
+Model_URL="https://yanglab.qd.sdu.edu.cn/CryoCodex/CryoCodex.pth"
 
 # Let predict.py print this launcher's name in its usage line instead of "predict.py"
 CRYOCODEX_PROG="${0##*/}"
@@ -56,19 +48,39 @@ EOF
 }
 
 # Help needs no checkpoint, so it is answered before looking for the model weights
+advanced_help=false
 case " $* " in
-    *" -h advanced "*|*" --help advanced "*) exec python "$CryoCodex_home/predict.py" --help;;
+    *" -h advanced "*|*" --help advanced "*) advanced_help=true;;
     *" -h "*|*" --help "*) short_help; exit 0;;
 esac
 
+# conda run handles activation internally, including environment activation hooks.
+# CONDA_EXE also works when conda is exposed only as an interactive shell function.
+conda_exe="${CONDA_EXE:-$(command -v conda || true)}"
+if [ -z "$conda_exe" ] || [ ! -x "$conda_exe" ]; then
+    echo "ERROR: Conda was not found. Install Conda and follow the README installation commands." >&2
+    exit 1
+fi
+python_command=("$conda_exe" run --no-capture-output -n "$CryoCodex_env" python)
+if [ "$advanced_help" = true ]; then
+    exec "${python_command[@]}" "$CryoCodex_home/predict.py" --help
+fi
+
+# Report a missing environment before attempting a potentially large download.
+if ! "${python_command[@]}" -c 'import sys'; then
+    echo "ERROR: Cannot use '$CryoCodex_env'. Complete the README installation commands first." >&2
+    exit 1
+fi
+
 # Use model_state_dicts/CryoCodex.pth, downloading it there on the first run
 checkpoint="$CryoCodex_home/model_state_dicts/CryoCodex.pth"
-if [ ! -f "$checkpoint" ]; then
+if [ ! -s "$checkpoint" ]; then
     if [ -z "$Model_URL" ]; then
         echo "ERROR: No checkpoint at '$checkpoint' and 'Model_URL' is not set yet"
         echo "Please download the model weights to that path manually"
         exit 1
     fi
+    mkdir -p -- "$(dirname -- "$checkpoint")"
     echo "Downloading the model weights to '$checkpoint' ..."
     if ! curl -fL --retry 2 -o "$checkpoint.part" "$Model_URL"; then
         rm -f "$checkpoint.part"
@@ -79,4 +91,4 @@ if [ ! -f "$checkpoint" ]; then
 fi
 
 # All arguments are passed on to predict.py; run `predict.sh -h` for the full option list
-exec python "$CryoCodex_home/predict.py" -m "$checkpoint" "$@"
+exec "${python_command[@]}" "$CryoCodex_home/predict.py" -m "$checkpoint" "$@"
