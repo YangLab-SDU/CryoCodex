@@ -130,45 +130,17 @@ git clone https://github.com/YangLab-SDU/CryoCodex.git
 cd CryoCodex
 ```
 
-### 2. Create a conda environment
+### 2. Create the environment and install packages
+
+Run these commands from the downloaded CryoCodex directory (Conda must be installed):
 
 ```bash
-conda create -n cryocodex_env python=3.11
-conda activate cryocodex_env
-```
-
-### 3. Install the packages
-
-```bash
-pip install -r requirements.txt
+conda create -y -n cryocodex_env python=3.11
+conda run --no-capture-output -n cryocodex_env python -m pip install -r requirements.txt
 chmod +x predict.sh
 ```
 
-### 4. Configure `predict.sh`
-
-The following three variables are blank by default. Fill them in at the top of `predict.sh` before running; for example:
-
-```bash
-CryoCodex_home="/home/data/CryoCodex"
-activate="/home/***/anaconda3/bin/activate"
-CryoCodex_env="cryocodex_env"
-```
-
-| Variable           | Description                                                            |
-| :----------------- | :--------------------------------------------------------------------- |
-| `CryoCodex_home` | Directory where CryoCodex was downloaded                             |
-| `activate`         | Path to the conda activation script                                    |
-| `CryoCodex_env`  | Name of the conda environment holding the packages installed in Step 3 |
-
-If you followed the commands above, set `CryoCodex_env="cryocodex_env"`. The model download URL is already configured.
-
-> **Note:** Model weights are downloaded automatically on the first run of `predict.sh`.
-
-Check the installation with:
-
-```bash
-./predict.sh -h
-```
+> **Note:** Model weights are downloaded automatically on the first inference run.
 
 </details>
 
